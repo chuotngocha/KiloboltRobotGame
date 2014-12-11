@@ -2,39 +2,38 @@ package com.kilobolt.robotgame;
 
 import android.graphics.Rect;
 
-
 public class Projectile {
 
 	private int x, y, speedX;
 	private boolean visible;
-	
+
 	private Rect r;
-	
-	public Projectile(int startX, int startY){
+
+	public Projectile(int startX, int startY) {
 		x = startX;
 		y = startY;
 		speedX = 7;
 		visible = true;
-		
+
 		r = new Rect(0, 0, 0, 0);
 	}
-	
-	public void update(){
+
+	public void update() {
 		x += speedX;
-		r.set(x, y, x+10, y+5);
-		if (x > 800){
+		r.set(x, y, x + 10, y + 5);
+		if (x > 800) {
 			visible = false;
 			r = null;
 		}
-		if (visible){
+		if (visible) {
 			checkCollision();
 		}
-		
+
 	}
 
 	private void checkCollision() {
-		
-		if (Rect.intersects(r, GameScreen.hb.r)){
+
+		if (Rect.intersects(r, GameScreen.hb.r)) {
 			visible = false;
 
 			if (GameScreen.hb.health > 0) {
@@ -42,12 +41,11 @@ public class Projectile {
 			}
 			if (GameScreen.hb.health == 0) {
 				GameScreen.hb.setCenterX(-100);
-				
 
 			}
 
 		}
-		if (Rect.intersects(r, GameScreen.hb2.r)){
+		if (Rect.intersects(r, GameScreen.hb2.r)) {
 			visible = false;
 
 			if (GameScreen.hb2.health > 0) {
@@ -55,13 +53,11 @@ public class Projectile {
 			}
 			if (GameScreen.hb2.health == 0) {
 				GameScreen.hb2.setCenterX(-100);
-				
 
 			}
 
 		}
 	}
-
 
 	public int getX() {
 		return x;
@@ -94,6 +90,5 @@ public class Projectile {
 	public void setVisible(boolean visible) {
 		this.visible = visible;
 	}
-	
-	
+
 }

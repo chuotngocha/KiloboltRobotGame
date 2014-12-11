@@ -41,19 +41,18 @@ public class Tile {
 
 	}
 
-		public void update() {
-			speedX = bg.getSpeedX() * 5;
-			tileX += speedX;
-			r.set(tileX, tileY, tileX+40, tileY+40);
-	
-			
-			
-			if (Rect.intersects(r, Robot.yellowRed) && type != 0) {
-				checkVerticalCollision(Robot.rect, Robot.rect2);
-				checkSideCollision(Robot.rect3, Robot.rect4, Robot.footleft, Robot.footright);
-			}
-	
+	public void update() {
+		speedX = bg.getSpeedX() * 5;
+		tileX += speedX;
+		r.set(tileX, tileY, tileX + 40, tileY + 40);
+
+		if (Rect.intersects(r, Robot.yellowRed) && type != 0) {
+			checkVerticalCollision(Robot.rect, Robot.rect2);
+			checkSideCollision(Robot.rect3, Robot.rect4, Robot.footleft,
+					Robot.footright);
 		}
+
+	}
 
 	public int getTileX() {
 		return tileX;
@@ -81,7 +80,7 @@ public class Tile {
 
 	public void checkVerticalCollision(Rect rtop, Rect rbot) {
 		if (Rect.intersects(rtop, r)) {
-			
+
 		}
 
 		if (Rect.intersects(rbot, r) && type == 8) {
@@ -91,25 +90,26 @@ public class Tile {
 		}
 	}
 
-	public void checkSideCollision(Rect rleft, Rect rright, Rect leftfoot, Rect rightfoot) {
-		if (type != 5 && type != 2 && type != 0){
+	public void checkSideCollision(Rect rleft, Rect rright, Rect leftfoot,
+			Rect rightfoot) {
+		if (type != 5 && type != 2 && type != 0) {
 			if (Rect.intersects(rleft, r)) {
 				robot.setCenterX(tileX + 102);
-	
+
 				robot.setSpeedX(0);
-	
-			}else if (Rect.intersects(leftfoot, r)) {
-				
+
+			} else if (Rect.intersects(leftfoot, r)) {
+
 				robot.setCenterX(tileX + 85);
 				robot.setSpeedX(0);
 			}
-			
+
 			if (Rect.intersects(rright, r)) {
 				robot.setCenterX(tileX - 62);
-	
+
 				robot.setSpeedX(0);
 			}
-			
+
 			else if (Rect.intersects(rightfoot, r)) {
 				robot.setCenterX(tileX - 45);
 				robot.setSpeedX(0);

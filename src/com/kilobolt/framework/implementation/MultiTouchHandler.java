@@ -12,7 +12,7 @@ import com.kilobolt.framework.Pool.PoolObjectFactory;
 
 public class MultiTouchHandler implements TouchHandler {
 	private static final int MAX_TOUCHPOINTS = 10;
-	
+
 	boolean[] isTouched = new boolean[MAX_TOUCHPOINTS];
 	int[] touchX = new int[MAX_TOUCHPOINTS];
 	int[] touchY = new int[MAX_TOUCHPOINTS];
@@ -52,8 +52,10 @@ public class MultiTouchHandler implements TouchHandler {
 					continue;
 				}
 				int pointerId = event.getPointerId(i);
-				if (event.getAction() != MotionEvent.ACTION_MOVE && i != pointerIndex) {
-					// if it's an up/down/cancel/out event, mask the id to see if we should process it for this touch
+				if (event.getAction() != MotionEvent.ACTION_MOVE
+						&& i != pointerIndex) {
+					// if it's an up/down/cancel/out event, mask the id to see
+					// if we should process it for this touch
 					// point
 					continue;
 				}
@@ -144,7 +146,7 @@ public class MultiTouchHandler implements TouchHandler {
 			return touchEvents;
 		}
 	}
-	
+
 	// returns the index for a given pointerId or -1 if no index.
 	private int getIndex(int pointerId) {
 		for (int i = 0; i < MAX_TOUCHPOINTS; i++) {

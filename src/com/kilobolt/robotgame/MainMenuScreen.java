@@ -62,7 +62,7 @@ public class MainMenuScreen extends Screen {
 
 	@Override
 	public void backButton() {
-        android.os.Process.killProcess(android.os.Process.myPid());
+		android.os.Process.killProcess(android.os.Process.myPid());
 
 	}
 }

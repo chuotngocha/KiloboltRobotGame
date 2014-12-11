@@ -2,7 +2,6 @@ package com.kilobolt.robotgame;
 
 import android.graphics.Rect;
 
-
 public class Enemy {
 
 	private int power, centerX, speedX, centerY;
@@ -24,20 +23,20 @@ public class Enemy {
 		if (Rect.intersects(r, Robot.yellowRed)) {
 			checkCollision();
 		}
-		
 
 	}
 
 	private void checkCollision() {
-		if (Rect.intersects(r, Robot.rect)|| Rect.intersects(r, Robot.rect2)
-				|| Rect.intersects(r, Robot.rect3) || Rect.intersects(r, Robot.rect4)) {
+		if (Rect.intersects(r, Robot.rect) || Rect.intersects(r, Robot.rect2)
+				|| Rect.intersects(r, Robot.rect3)
+				|| Rect.intersects(r, Robot.rect4)) {
 
 		}
 	}
 
 	public void follow() {
-		
-		if (centerX < -95 || centerX > 810){
+
+		if (centerX < -95 || centerX > 810) {
 			movementSpeed = 0;
 		}
 

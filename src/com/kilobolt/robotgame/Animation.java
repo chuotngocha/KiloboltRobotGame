@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import com.kilobolt.framework.Image;
 
-
 public class Animation {
 
 	@SuppressWarnings("rawtypes")
