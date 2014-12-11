@@ -9,10 +9,9 @@
 
     <uses-sdk
         android:minSdkVersion="8"
-        android:targetSdkVersion="21" />
+        android:targetSdkVersion="19" />
 
-    <application
-        android:label="RobotGame" >
+    <application android:label="RobotGame" >
         <activity
             android:name=".SampleGame"
             android:configChanges="keyboard|keyboardHidden|orientation"
